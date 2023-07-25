@@ -1,0 +1,68 @@
+<script setup>
+import {ref} from "vue"
+let msg = "Hello World"
+let namaDepan = "<h1>My Name Is Mumu</h1>"
+let pesan = " Wah Aku Terlihat " + new Date().toLocaleString()
+let todos = [
+      { teks: 'Belajar JavaScript' },
+      { teks: 'Belajar Vue' },
+      { teks: 'Buat proyek keren' }
+    ];
+let number = 8
+let ok = "NO"
+let message = ref("Hai Vue JS");
+function balikkanPesan(){
+  message.value = message.value.split('').reverse().join('');
+}
+let pesan2 = ref("Hello Vue JS")
+</script>
+
+<template>
+  <div>
+    <span>{{ msg }}</span> <br>
+    <span style="color: red;"> Ini Warna Merah</span>
+    <span v-html="namaDepan"></span>
+    <button v-bind:disabled="isbuttondisabled">Ini Tombol</button><br>
+    <span :title="pesan">Lihat ini</span>
+  </div>
+  <div>
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.teks }}
+    </li>
+  </ol>
+</div>
+<div>
+  {{ number + 1 }}<br>
+
+{{ ok ? 'YES' : 'NO' }} <br>
+
+{{ msg.split('').reverse().join('') }} <br>
+
+<div :id="`list-${id}`"></div>
+<!-- Split Button -->
+<p>{{ message }}</p>
+<button v-on:click="balikkanPesan">Balikkan Pesan!!!</button>
+</div>
+<p>{{ pesan2 }}</p>
+<input v-model="pesan2">
+</template>
+
+<template>
+  <div>
+    <h1>Selamat datang di Vue.js Land!</h1>
+    <p>Ini adalah komponen Vue pertamamu.</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MyComponent',
+};
+</script>
+
+<style>
+h1 {
+  color: blue;
+}
+</style>
